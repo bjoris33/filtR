@@ -1,0 +1,5 @@
+exportPattern("^[^\\.]")
+
+import("ALDEx2")
+import("propr")
+import("knitr")
