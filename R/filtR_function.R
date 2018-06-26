@@ -44,6 +44,10 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5) {
   m.neg <- as.numeric(final5[which(as.numeric(final5[,4]) < 0), 1])
   m.pos <- as.numeric(final5[which(as.numeric(final5[,4]) > 0), 2])
   m.remove <- unique(sort(c(m.pos, m.neg)))
+  if(length(m.remove) == 0) {
+    stop('CLR cutoff resulted in no OTUs/ASVs being discarded. Consider relaxing the CLR cutoff.', call. = FALSE)
+  }
+  print(paste('Number of OTUs/ASVs removed from count table: ', length(m.remove)))
   filtR_table <- m[-m.remove,]
   return(filtR_table)
 }
