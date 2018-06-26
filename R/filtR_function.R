@@ -14,7 +14,12 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5) {
   m.clr <- aldex.clr(m.n0, conds = rep("x", ncol(m.n0)))
   m.propr <- aldex2propr(m.clr)
   m.propr <- m.propr[">", rho_CO]
-  m.propr.simp <- simplify(m.propr)
+  if(length(m.propr@pairs) == 0) {
+    stop('Rho cutoff resulted in no pairs of associated features being identified. Consider relaxing the rho cutoff.', call. = FALSE)
+    }
+  else {
+    m.propr.simp <- simplify(m.propr)
+    }
   rhopairs <- data.frame()
   coords <- for(i in m.propr.simp@pairs) {
        if(i %% ncol(m.propr.simp@logratio) == 0) {
