@@ -5,8 +5,11 @@ The filtR R package currently contains a single function, filtR().
 
 # Software Requirements
 filtR was developed on R version 3.5.0, so it is recommended to use the same version or higher to avoid any compatibility issues.
+
 Additionally two separate R packages are implimented within filtR:
+
 propr -- Version 3.5.1 was used for the development of filtR.
+
 ALDEx2 -- Version 1.12.0 was used for the development of filtR.
 
 # Data Input
