@@ -20,7 +20,7 @@ propr -- Version 3.5.1 was used for the development of filtR.
 ALDEx2 -- Version 1.12.0 was used for the development of filtR.
 
 # Data Input
-filtR reads a local stored count table from the 'count_file = ' term within the function. The count table must be formatted with samples as columns and OTUs/ASVs as rows. Count tables with and without columns for taxonomy are supported by filtR.
+filtR reads a locally stored count table from the 'count_file = ' term within the function. The count table must be formatted with samples as columns and OTUs/ASVs as rows. Count tables with and without columns for taxonomy are supported by filtR.
 
 # Data Output
 filtR returns to its assigned variable a count table in the same format as the original table, less the rows (OTUs/ASVs) that filtR determined to be error-derived. 
