@@ -10,7 +10,16 @@
 #' function(count_file='SRP058027_taxonomy_abundances_SSU_v4.1.tsv', rho_CO=0.7, clr_CO=5)
 filtR <- function(count_file, rho_CO=0.7, clr_CO=5) {
   m <- read.table(count_file)
-  m.n0 <- m[,2:ncol(m)]
+  taxcol <- c()
+  for(i in 1:ncol(m)) {
+    if(class(m[,i]) == "numeric") {
+      next
+    }
+    else {
+      taxcol <- c(taxcol, i)
+    }
+  }
+  m.n0 <- m[,-taxcol]
   m.clr <- aldex.clr(m.n0, conds = rep("x", ncol(m.n0)))
   m.propr <- aldex2propr(m.clr)
   m.propr <- m.propr[">", rho_CO]
@@ -47,7 +56,7 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5) {
   if(length(m.remove) == 0) {
     stop('CLR cutoff resulted in no OTUs/ASVs being discarded. Consider relaxing the CLR cutoff.', call. = FALSE)
   }
-  print(paste('Number of OTUs/ASVs removed from count table: ', length(m.remove)))
+  print(paste('Number of OTUs/ASVs filtered from count table: ', length(m.remove)))
   filtR_table <- m[-m.remove,]
   return(filtR_table)
 }
