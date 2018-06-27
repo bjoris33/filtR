@@ -12,11 +12,11 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5) {
   m <- read.table(count_file)
   taxcol <- c()
   for(i in 1:ncol(m)) {
-    if(class(m[,i]) == "numeric") {
-      next
+    if(class(m[,i]) == "factor") {
+    taxcol <- c(taxcol, i)
     }
     else {
-      taxcol <- c(taxcol, i)
+      next
     }
   }
   if(length(taxcol) == 0) {
