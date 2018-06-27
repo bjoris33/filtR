@@ -3,6 +3,13 @@ filtR is an R package developed to filter operational taxonomic units (OTUs) or 
 
 The filtR R package currently contains a single function, filtR().
 
+# Installation 
+Use the devtools R package to install from this GitHub repository:
+
+devtools::install_github('bjoris33/filtR')
+
+NOTE: You may need to restart R after installing.
+
 # Software Requirements
 filtR was developed on R version 3.5.0, so it is recommended to use the same version or higher to avoid any compatibility issues.
 
