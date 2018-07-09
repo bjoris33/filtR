@@ -43,7 +43,7 @@ Let's begin by loading in the count table from EBI:
 unfilt <- read.table('SRP078943_taxonomy_abundances_SSU_v4.1.tsv')
 dim(unfilt)
 ```
-The initial count table has 319 rows--which represent the OTUs--and 38 columns--which are the 37 samples and one column for the taxonomic assignments for the OTUs.
+The initial count table has 319 rows (which represent the OTUs) and 38 columns, which are the 37 samples and one column for the taxonomic assignments for the OTUs.
 
 # Applying the filtR function
 With a count table selected, we can now use the filtR function:
@@ -56,11 +56,11 @@ As we can see from the output, filtR filtered 4 OTUs from the count table. The o
 # Modifiable parameters in filtR
 `filtR` is a simple function with 3 modifiable parameters:
 
-* `count_file`: the file name of the count file that is being filtered.
+* `count_file`: the file name of the count table file that is being filtered.
 
-* `rho_CO`: Defaults to 0.7. The value of $\rho$ (range from 0 to 1) that is being used as a cutoff for analysis. Pairs of features with a greater value of $\rho$ will be indexed. If filtR is failing to index any pairs of OTUs/ASVs, this parameter can be lowered. However, this increases the chance that the filter will eliminate 'real' OTUs/ASVs.
+* `rho_CO`: Defaults to 0.7. The value of $\rho$ (range from 0 to 1) that is being used as a cutoff for analysis. Pairs of features with a greater value of $\rho$ will be indexed. If filtR is failing to index any pairs of OTUs/ASVs, this parameter can be lowered. However, this increases the chance that the filter will eliminate 'real' OTUs/ASVs and it is recommended to use the default cutoff or higher.
 
-* `clr_CO`: Defaults to 5. This filtering parameter sets the minimum difference in centered log ratio between the pairs of OTUs indexed by the $\rho$ cutoff. To increase the number of OTUs/ASVs that are filtered by filtR, this parameter can be lowered
+* `clr_CO`: Defaults to 5. This filtering parameter sets the minimum difference in centered log ratio between the pairs of OTUs indexed by the $\rho$ cutoff. To increase the number of OTUs/ASVs that are filtered by filtR, this parameter can be lowered. However, this increases the chance that the filter will eliminate 'real' OTUs/ASVs and it is recommended to use the default cutoff or higher.
 
 Let's explore how modifying these filtering parameters individually can change the results of filtering.
 

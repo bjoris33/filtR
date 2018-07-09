@@ -3,7 +3,9 @@ filtR is an R package developed to filter operational taxonomic units (OTUs) or 
 
 The filtR R package currently contains a single function, filtR().
 
-# Installation 
+For an in-depth tutorial of the package, use `browseVignettes("filtR")` within R.
+
+# Installation
 Use the devtools R package to install from this GitHub repository:
 
 devtools::install_github('bjoris33/filtR')
@@ -23,7 +25,7 @@ ALDEx2 -- Version 1.12.0 was used for the development of filtR.
 filtR reads a locally stored count table from the 'count_file = ' term within the function. The count table must be formatted with samples as columns and OTUs/ASVs as rows. Count tables with and without columns for taxonomy are supported by filtR.
 
 # Data Output
-filtR returns to its assigned variable a count table in the same format as the original table, less the rows (OTUs/ASVs) that filtR determined to be error-derived. 
+filtR returns to its assigned variable a count table in the same format as the original table, less the rows (OTUs/ASVs) that filtR determined to be error-derived.
 
 # Filtering Parameters
 rho_CO: Defaults to 0.7. Range 0 to 1. rho is a statistic can be used to assess beta-association between a pair of features. As the value of rho approaches 1, it can be assumed that the two features used to calculate rho have a constant ratio across the dataset and are therefore associated. The premise of ASVs and OTUs is generally that each individual ASV and OTU, for the most part, should lack association with other ASVs/OTUs because they are independent entities. Error-derived OTUs/ASVs will occur as a constant ratio of the OTU they are derived from and therefore will have a high rho value.

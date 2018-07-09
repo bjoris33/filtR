@@ -7,11 +7,11 @@
 filtR(count_file, rho_CO = 0.7, clr_CO = 5)
 }
 \arguments{
-\item{count_file}{Input your saved count file.}
+\item{count_file}{Input your saved count table file.}
 
-\item{rho_CO}{Input your rho value cutoff. Range of 0 to 1. Higher value results in a tighter filter with less OTUs being discarded. Defaults to 0.7.}
+\item{rho_CO}{Input your rho value cutoff. Range of 0 to 1. Higher value results in a tighter filter with fewer OTUs being discarded. Defaults to 0.7.}
 
-\item{clr_CO}{Input your centered log ratio difference cutoff. Higher value results in a tighter filter with less OTUs being discarded Defaults to 5.}
+\item{clr_CO}{Input your centered log ratio difference cutoff. Higher value results in a tighter filter with fewer OTUs being discarded Defaults to 5.}
 }
 \value{
 Count table with error-derived OTUs removed.

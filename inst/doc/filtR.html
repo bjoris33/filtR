@@ -159,7 +159,7 @@ $(document).ready(function () {
 <pre class="r"><code>unfilt &lt;- read.table('SRP078943_taxonomy_abundances_SSU_v4.1.tsv')
 dim(unfilt)</code></pre>
 <pre><code>## [1] 319  38</code></pre>
-<p>The initial count table has 319 rows–which represent the OTUs–and 38 columns–which are the 37 samples and one column for the taxonomic assignments for the OTUs.</p>
+<p>The initial count table has 319 rows (which represent the OTUs) and 38 columns, which are the 37 samples and one column for the taxonomic assignments for the OTUs.</p>
 </div>
 <div id="applying-the-filtr-function" class="section level1">
 <h1><span class="header-section-number">5</span> Applying the filtR function</h1>
@@ -177,9 +177,9 @@ dim(unfilt)</code></pre>
 <h1><span class="header-section-number">6</span> Modifiable parameters in filtR</h1>
 <p><code>filtR</code> is a simple function with 3 modifiable parameters:</p>
 <ul>
-<li><p><code>count_file</code>: the file name of the count file that is being filtered.</p></li>
-<li><p><code>rho_CO</code>: Defaults to 0.7. The value of <span class="math inline">\(\rho\)</span> (range from 0 to 1) that is being used as a cutoff for analysis. Pairs of features with a greater value of <span class="math inline">\(\rho\)</span> will be indexed. If filtR is failing to index any pairs of OTUs/ASVs, this parameter can be lowered. However, this increases the chance that the filter will eliminate ‘real’ OTUs/ASVs.</p></li>
-<li><p><code>clr_CO</code>: Defaults to 5. This filtering parameter sets the minimum difference in centered log ratio between the pairs of OTUs indexed by the <span class="math inline">\(\rho\)</span> cutoff. To increase the number of OTUs/ASVs that are filtered by filtR, this parameter can be lowered</p></li>
+<li><p><code>count_file</code>: the file name of the count table file that is being filtered.</p></li>
+<li><p><code>rho_CO</code>: Defaults to 0.7. The value of <span class="math inline">\(\rho\)</span> (range from 0 to 1) that is being used as a cutoff for analysis. Pairs of features with a greater value of <span class="math inline">\(\rho\)</span> will be indexed. If filtR is failing to index any pairs of OTUs/ASVs, this parameter can be lowered. However, this increases the chance that the filter will eliminate ‘real’ OTUs/ASVs and it is recommended to use the default cutoff or higher.</p></li>
+<li><p><code>clr_CO</code>: Defaults to 5. This filtering parameter sets the minimum difference in centered log ratio between the pairs of OTUs indexed by the <span class="math inline">\(\rho\)</span> cutoff. To increase the number of OTUs/ASVs that are filtered by filtR, this parameter can be lowered. However, this increases the chance that the filter will eliminate ‘real’ OTUs/ASVs and it is recommended to use the default cutoff or higher.</p></li>
 </ul>
 <p>Let’s explore how modifying these filtering parameters individually can change the results of filtering.</p>
 <p>If we lower the <span class="math inline">\(\rho\)</span> cutoff to 0.6:</p>
