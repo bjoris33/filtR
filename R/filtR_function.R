@@ -70,7 +70,7 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5, plot=FALSE) {
   filtR_table <- m[-m.remove,]
   if(plot == TRUE) {
     for(r in 1:nrow(final5)){
-      plot.default(m.propr@logratio[,as.numeric(final5[r,1])], m.propr@logratio[,as.numeric(final5[r,2])], xlab = paste('CLR of OTU', final5[r,1]), ylab = paste('CLR of OTU', final5[r,2]), main = paste('Rho:', round(final5[r,3], digits=3), ',', 'CLR Difference:', round(final5[r,4], digits=3), ',', 'Slope:', round(lm(m.propr@logratio[,as.numeric(final5[r,2])]~m.propr@logratio[,as.numeric(final5[r,1])])$coefficients[2], digits=3)))
+      plot.default(m.propr@logratio[,as.numeric(final5[r,1])], m.propr@logratio[,as.numeric(final5[r,2])], xlab = paste('CLR of OTU', final5[r,1]), ylab = paste('CLR of OTU', final5[r,2]), main = paste('Rho:', round(as.numeric(final5[r,3]), digits=3), ',', 'CLR Difference:', round(as.numeric(final5[r,4]), digits=3), ',', 'Slope:', round(lm(m.propr@logratio[,as.numeric(final5[r,2])]~m.propr@logratio[,as.numeric(final5[r,1])])$coefficients[2], digits=3)))
       abline(lm(m.propr@logratio[,as.numeric(final5[r,2])]~m.propr@logratio[,as.numeric(final5[r,1])]), lty=2, col="red")
       abline(lm(m.propr@logratio[,as.numeric(final5[r,2])]~m.propr@logratio[,as.numeric(final5[r,1])])$coefficients[1], 1)
     }
