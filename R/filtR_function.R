@@ -26,6 +26,7 @@ filtR <- function(count_file, rho_CO=0.7, clr_CO=5, plot=FALSE) {
   else {
     m.n0 <- m[,-taxcol]
   }
+  rownames(m.n0) <- 1:nrow(m.n0)
   m.clr <- aldex.clr(m.n0, conds = rep("x", ncol(m.n0)))
   m.propr <- aldex2propr(m.clr)
   m.propr <- m.propr[">", rho_CO]
